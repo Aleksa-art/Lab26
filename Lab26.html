@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Lab 26</title>
+  <link rel="stylesheet" href="Lab.css">
+</head>
+<body>
+  <h2>ToDo list</h2>
+  <input type="text" id="new-task" placeholder="Нове завдання">
+  <button id="add-task">Додати</button>
+
+  <ul id="task-list"></ul>
+
+  <script>
+    const taskList = document.getElementById('task-list');
+    const newTaskInput = document.getElementById('new-task');
+    const addTaskButton = document.getElementById('add-task');
+
+    addTaskButton.addEventListener('click', function () {
+      const taskText = newTaskInput.value.trim();
+
+      if (taskText) {
+        const newTask = document.createElement('li');
+        newTask.textContent = taskText;
+
+        newTask.addEventListener('click', function () {
+          newTask.classList.toggle('completed');
+        });
+
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Delete task';
+        removeButton.addEventListener('click', function (e) {
+          e.stopPropagation();
+          taskList.removeChild(newTask);
+        });
+
+        newTask.appendChild(removeButton);
+        taskList.appendChild(newTask);
+        newTaskInput.value = '';
+      }
+    });
+  </script>
+</body>
+</html>

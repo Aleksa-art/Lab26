@@ -1,0 +1,26 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 25px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+li {
+    margin: 8px 0;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #5DADE2;
+}
+
+button {
+    margin-left: 12px;
+    padding: 4px 10px;
+    cursor: pointer;
+}
